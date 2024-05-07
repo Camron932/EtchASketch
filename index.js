@@ -52,6 +52,7 @@ const b = Math.floor(Math.random() * 256);
     if (colorChoice === false && e.buttons == 1 || e.buttons == 3) {
         e.target.style.backgroundColor = "rgb(" + r + "," + g + "," + b + ")";
     } else if (e.buttons == 1 || e.buttons == 3) {
-        e.target.style.backgroundColor = "rgb(0, 0, 0)";   
+        e.target.style.backgroundColor = "rgb(0, 0, 0)";
+        e.target.style.opacity -= '-0.1';   
     }
 });
