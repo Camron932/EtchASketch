@@ -4,6 +4,8 @@ const btnThirtyTwo = document.querySelector("#thirtyTwoGame");
 const btnSixtyFour = document.querySelector("#sixtyFourGame");
 const cubeDiv = document.createElement('div');
 const pixels = document.getElementsByClassName("cubes");
+const blackColor = document.querySelector("#black");
+const randomColor = document.querySelector("#random");
 
 
 
@@ -28,3 +30,28 @@ btnSixtyFour.addEventListener('click', () => {
 function removeChild() {
     board.innerHTML = null
 };
+
+let colorChoice = false;
+
+blackColor.addEventListener('click', () => {
+    colorChoice = true;
+    return colorChoice;
+});
+
+randomColor.addEventListener('click', () => {
+    colorChoice = false;
+    return colorChoice;
+});
+
+board.addEventListener("mouseover", function (e) {
+
+const r = Math.floor(Math.random() * 256);
+const g = Math.floor(Math.random() * 256);
+const b = Math.floor(Math.random() * 256);
+
+    if (colorChoice === false && e.buttons == 1 || e.buttons == 3) {
+        e.target.style.backgroundColor = "rgb(" + r + "," + g + "," + b + ")";
+    } else if (e.buttons == 1 || e.buttons == 3) {
+        e.target.style.backgroundColor = "rgb(0, 0, 0)";   
+    }
+});
